@@ -8,6 +8,11 @@ if(!isset($_SESSION['clicks'])) {
     $_SESSION['clicks'] = 0;
 }
 
+if(!isset($_POST['upgrade1']) && !$_SESSION['clicks'] == 10) {
+    echo 'Not enough clicks';
+} else if($_SESSION['clicks'] >= 10) {
+    $_SESSION['clicks'] += 10;
+}
 
 ?>
 <!doctype html>
@@ -25,6 +30,7 @@ if(!isset($_SESSION['clicks'])) {
 <form method="post">
     <div class="position-absolute top-50 start-50 translate-middle">
         <input type="image" src="images/PHP_logo.png" height="150" width="150" name="click">
+        <input type="button" name="upgrade1" value="Upgrade clicks">
     </div>
 </form>
 
